@@ -259,6 +259,8 @@ const getTask = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
 
+    console.log( "hshdfhdf       ", id ) ;
+
     const task = await Task.findById(id)
       .populate({
         path: "team",

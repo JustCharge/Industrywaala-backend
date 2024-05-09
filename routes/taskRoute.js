@@ -23,8 +23,9 @@ router.post("/activity/:id", protectRoute, postTaskActivity);
 
 router.get("/dashboard", protectRoute, dashboardStatistics);
 router.get("/", protectRoute, getTasks);
-router.get("/:id", protectRoute, getTask);
-router.get("/all-tasks-for-admin", protectRoute, isAdminRoute, getAllTasksForAdmin); 
+router.get("/all-tasks-for-admin", protectRoute, isAdminRoute, getAllTasksForAdmin); // This line moved up before /:id
+router.get("/:id", protectRoute, getTask); // This should be after all specific GET routes
+
 
 router.put("/create-subtask/:id", protectRoute, isAdminRoute, createSubTask);
 router.put("/update/:id", protectRoute, isAdminRoute, updateTask);
